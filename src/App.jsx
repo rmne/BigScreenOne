@@ -6,7 +6,7 @@ import Chart from './components/Chart';
 import barOption from './components/bar';
 import nightingOption from './components/nightingale';
 import './App.css';
-import './common.css';
+// import './common.css';
 
 const option_left1 = {
   // backgroundColor: '#00265f',
