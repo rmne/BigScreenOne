@@ -20,7 +20,7 @@ let option = {
     {
       type: 'map',
       map: 'China',
-      zoom: 1.5,
+      zoom: 1.28,
       aspectScale: 0.75, //长宽比
       top: '30%',
       label: {

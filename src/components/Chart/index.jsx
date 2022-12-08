@@ -3,7 +3,7 @@ import * as echarts from 'echarts';
 
 const Chart = (v) => {
   let { option } = v;
-  console.log(option);
+  // console.log(option);
   const [load, setLoad] = useState(false);
   const [chartOption, setChartOption] = useState(option);
   const chartRef = useRef(null);

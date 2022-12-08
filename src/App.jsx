@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import * as echarts from 'echarts';
 import Map from './components/Map';
 import Chart from './components/Chart';
+import barOption from './components/bar';
+import nightingOption from './components/nightingale';
 import './App.css';
 import './common.css';
 
@@ -102,15 +104,15 @@ const option_left2 = {
   },
   grid: {
     left: '0%',
-    top: '10px',
+    top: '5%',
     right: '0%',
-    bottom: '4%',
+    bottom: '1%',
     containLabel: true,
   },
   xAxis: [
     {
       type: 'category',
-      data: ['维森集团', 'A公司', 'B公司', 'C公司'],
+      data: ['维森集团', 'A公司', 'B公司', 'C公司', 'D公司'],
       axisLine: {
         show: true,
         lineStyle: {
@@ -139,7 +141,7 @@ const option_left2 = {
     {
       type: 'value',
       axisLabel: {
-        //formatter: '{value} %'
+        formatter: '{value} 亿',
         show: true,
         textStyle: {
           color: 'rgba(255,255,255,.6)',
@@ -167,15 +169,13 @@ const option_left2 = {
   series: [
     {
       type: 'bar',
-      data: [312, 213, 134, 281],
+      data: [312, 213, 134, 281, 400],
       barWidth: '35%', //柱子宽度
       // barGap: 1, //柱子之间间距
       itemStyle: {
-        normal: {
-          color: '#27d08a',
-          opacity: 1,
-          barBorderRadius: 5,
-        },
+        color: '#27d08a',
+        opacity: 1,
+        barBorderRadius: 5,
       },
     },
   ],
@@ -270,11 +270,11 @@ const option_right1 = {
       radius: '78%',
       center: ['50%', '50%'],
       data: [
-        { value: 335, name: '历史收款' },
-        { value: 310, name: '本年收款' },
-        { value: 274, name: '本年应收' },
-        { value: 235, name: '计提坏账' },
-        { value: 400, name: '坏账收回' },
+        { value: 335, name: '产品销售' },
+        { value: 310, name: '服务销售' },
+        { value: 274, name: '二次销售' },
+        // { value: 235, name: '计提坏账' },
+        // { value: 400, name: '坏账收回' },
       ].sort(function (a, b) {
         return a.value - b.value;
       }),
@@ -423,6 +423,146 @@ const option_left4 = {
   ],
 };
 
+let ydata = [
+  '上海',
+  '北京',
+  '深圳',
+  '天津',
+  '河南',
+  '新疆',
+  '澳门',
+  '济南',
+  '苏州',
+  '杭州',
+];
+let xdata = [12, 13, 14, 15, 16, 17, 18, 20, 21, 22];
+let option_right2 = {
+  tooltip: {
+    trigger: 'axis',
+  },
+  grid: {
+    left: '80',
+    right: '20',
+    bottom: '20',
+    top: '20',
+    containLabel: false,
+  },
+  xAxis: {
+    type: 'value',
+    show: false,
+  },
+  yAxis: {
+    type: 'category',
+    data: ydata,
+    axisLine: {
+      show: false,
+    },
+    axisTick: {
+      show: false,
+    },
+    axisLabel: {
+      margin: 70,
+      width: 60,
+      align: 'left',
+      overflow: 'truncate',
+      formatter: function (value, index) {
+        let ind = index + 1;
+        if (ind == ydata.length) {
+          return '{one|' + (ydata.length - index) + '} {a|' + value + '}';
+        } else if (ind + 1 == ydata.length) {
+          return '{two|' + (ydata.length - index) + '} {b|' + value + '}';
+        } else if (ind + 2 == ydata.length) {
+          return '{three|' + (ydata.length - index) + '} {c|' + value + '}';
+        }
+        if (ydata.length - index > 9) {
+          return '{five|' + (ydata.length - index) + '} {d|' + value + '}';
+        }
+        return '{four|' + (ydata.length - index) + '} {d|' + value + '}';
+      },
+      rich: {
+        a: {
+          color: '#59c9f9',
+        },
+        b: {
+          color: '#59c9f9',
+        },
+        c: {
+          color: '#59c9f9',
+        },
+        d: {
+          color: '#59c9f9',
+        },
+        // 第一名
+        one: {
+          backgroundColor: '#E86452',
+          color: 'white',
+          width: 12,
+          height: 16,
+          padding: [1, 0, 0, 5],
+          borderRadius: 10,
+          fontSize: 11,
+        },
+        // 第二名
+        two: {
+          backgroundColor: '#FF9845',
+          color: 'white',
+          width: 12,
+          height: 16,
+          padding: [1, 0, 0, 5],
+          borderRadius: 10,
+          fontSize: 11,
+        },
+        // 第三名
+        three: {
+          backgroundColor: '#F6BD16',
+          color: 'white',
+          width: 12,
+          height: 16,
+          padding: [1, 0, 0, 5],
+          borderRadius: 10,
+          fontSize: 11,
+        },
+        // 一位数
+        four: {
+          backgroundColor: 'rgba(0,0,0,0.15)',
+          color: 'white',
+          width: 12,
+          height: 16,
+          padding: [1, 0, 0, 5],
+          borderRadius: 10,
+          fontSize: 11,
+        },
+        // 两位数
+        five: {
+          backgroundColor: 'rgba(0,0,0,0.15)',
+          color: 'white',
+          width: 16,
+          height: 16,
+          padding: [1, 0, 0, 1],
+          borderRadius: 10,
+          fontSize: 11,
+        },
+      },
+    },
+  },
+  series: [
+    {
+      type: 'bar',
+      // showBackground: true,
+      label: {
+        show: true,
+        position: 'right',
+        color: 'white',
+      },
+      barWidth: 20,
+      itemStyle: {
+        color: '#5B8FF9',
+      },
+      data: xdata,
+    },
+  ],
+};
+
 function App() {
   // const [once, setOnce] = useState(0);
   const [winWidth, setWinWidth] = useState(200);
@@ -507,14 +647,14 @@ function App() {
             </div>
           </li>
           <li>
-            <div className="boxall" style={{ height: '3.2rem' }}>
+            <div className="boxall" style={{ height: '3.1rem' }}>
               <div className="alltitle">本年度销售合同按类型占比</div>
-              <Chart option={option_right1} id="echart4" />
+              <Chart option={nightingOption} id="echart4" />
               <div className="boxfoot"></div>
             </div>
-            <div className="boxall" style={{ height: '6.3rem' }}>
+            <div className="boxall" style={{ height: '6.43rem' }}>
               <div className="alltitle">前十大供应商/客户</div>
-              <div className="allnav" id="echart5"></div>
+              <Chart option={barOption} id="echart5" />
               <div className="boxfoot"></div>
             </div>
           </li>
