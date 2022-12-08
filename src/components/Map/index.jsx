@@ -3,7 +3,7 @@ import * as echarts from 'echarts';
 // import '../../../public/js/china.js';
 // import '../../../public/js/echarts.min.js';
 import { data, geoData } from './geoData';
-import './common.css';
+// import './common.css';
 
 let option = {
   tooltip: {
