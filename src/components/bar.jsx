@@ -358,6 +358,6 @@ let barOption = {
   ],
 };
 
-console.log(barOption);
+// console.log(barOption);
 
 export default barOption;

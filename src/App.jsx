@@ -206,7 +206,7 @@ const option_left3 = {
     itemWidth: 10,
     itemHeight: 10,
     formatter: (v) => {
-      console.log(v);
+      // console.log(v);
     },
     textStyle: {
       color: 'rgba(255,255,255,.5)',
@@ -568,7 +568,7 @@ function App() {
   const [winWidth, setWinWidth] = useState(200);
   useEffect(() => {
     setWinWidth(window.innerHeight);
-    console.log(window.innerHeight);
+    // console.log(window.innerHeight);
     // setOnce(once + 1);
   }, []);
 
