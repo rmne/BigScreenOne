@@ -622,14 +622,16 @@ function App() {
               </div>
               <div className="barbox">
                 <ul className="clearfix">
-                  <li className="pulll_left counter">19,314</li>
+                  <li className="pulll_left counter">
+                    19,314<div></div>
+                  </li>
                   <li className="pulll_left counter">8,963</li>
                 </ul>
               </div>
               <div className="barbox2">
                 <ul className="clearfix">
-                  <li className="pulll_left">合同金额（万元）还没加上去</li>
-                  <li className="pulll_left">合同金额</li>
+                  <li className="pulll_left">合同金额（万元）</li>
+                  <li className="pulll_left">合同金额（万元）</li>
                 </ul>
               </div>
             </div>
