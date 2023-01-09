@@ -1,20 +1,13 @@
 import { useRef, useState, useEffect } from 'react';
 import * as echarts from 'echarts';
-// import '../../../public/js/china.js';
-// import '../../../public/js/echarts.min.js';
 import { data, geoData } from './geoData';
-// import './common.css';
 
+console.log(data);
 let option = {
   tooltip: {
     trigger: 'item',
-    formatter: function (params) {
-      if (typeof params.value[2] == 'undefined') {
-        return params.name + ' : ' + params.value;
-      } else {
-        return params.name + ' : ' + params.value[2];
-      }
-    },
+    formatter: ({ name, marker, value }) =>
+      `${name}<br />${marker} 合同总金额 ${value} 万元`,
   },
   series: [
     {
@@ -36,31 +29,39 @@ let option = {
           areaColor: '#293fff',
         },
       },
-    },
-    {
-      name: '消费金额',
-      type: 'scatter',
-      coordinateSystem: 'geo',
-      data: data,
-      symbolSize: function (val) {
-        // return val[2] / {{form.map_1.symbolSize}};
-      },
-      emphasis: {
-        label: {
-          show: true,
+      data,
+      visualMap: {
+        show: true,
+        min: 800,
+        max: 50000,
+        inRange: {
+          color: ['lightskyblue', 'yellow', 'orangered'],
         },
       },
-      label: {
-        formatter: '{b}',
-        position: 'right',
-        show: false,
-      },
-      itemStyle: {
-        color: '#ffeb7b',
-      },
     },
+    // {
+    //   name: '消费金额',
+    //   type: 'scatter',
+    //   coordinateSystem: 'geo',
+    //   data: data,
+    //   symbolSize: 200,
+    //   emphasis: {
+    //     label: {
+    //       show: true,
+    //     },
+    //   },
+    //   label: {
+    //     formatter: '{b}',
+    //     position: 'right',
+    //     show: false,
+    //   },
+    //   itemStyle: {
+    //     color: '#ffeb7b',
+    //   },
+    // },
   ],
 };
+console.log(option);
 
 const Map = () => {
   const [load, setLoad] = useState(false);
@@ -102,7 +103,7 @@ const Map = () => {
 
   return (
     <>
-      <div ref={chartRef} className="map4" id="map_1"></div>
+      <div ref={chartRef} className="map4"></div>
     </>
   );
 };

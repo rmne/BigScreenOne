@@ -77,7 +77,13 @@ a:hover{ color:#06c; text-decoration: none!important}
 
 .barbox{  border: 1px solid rgba(25,186,139,.17); position: relative;}
 .barbox li{ font-size: .7rem; color: #ffeb7b; padding: .05rem 0;  font-family:electronicFont; font-weight: bold;}
-.barbox2 li{ font-size: .19rem; color:rgba(255,255,255,.7); padding-top: .1rem;}
+
+.barbox2 li{
+	font-size: .19rem;
+	color:rgba(255,255,255,.7);
+	padding-top: .1rem;
+	padding-bottom: .1rem;
+}
 
 .map{  position:relative; height: 7.2rem; z-index: 9;}
 .map4{ width: 200%; height:7rem;  position: relative; left: -50%; top: 4%; margin-top: .2rem; z-index: 5;}

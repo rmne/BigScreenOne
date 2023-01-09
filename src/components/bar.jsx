@@ -207,8 +207,8 @@ let barOption = {
           //margin: 30
         },
       },
-      pdaaing: [5, 0, 0, 0],
-      postion: 'right',
+      padding: [5, 0, 0, 0],
+      position: 'left',
       data: attaName,
       axisLabel: {
         margin: 30,
@@ -279,10 +279,10 @@ let barOption = {
       axisLine: 'none',
       show: true,
       axisLabel: {
-        textStyle: {
-          color: '#fff',
-          fontSize: '10',
-        },
+        // textStyle: {
+        color: '#fff',
+        fontSize: '10',
+        // },
       },
       data: attackSourcesDataFmt(attaName),
     },
@@ -324,7 +324,8 @@ let barOption = {
       data: attackSourcesDataFmt(attaData),
       align: 'center',
       itemStyle: {
-        barBorderRadius: 10,
+        borderRadius: 10,
+        // barBorderRadius: 10,
       },
       label: {
         show: true,
@@ -347,12 +348,11 @@ let barOption = {
         color: '#fff',
       },
       itemStyle: {
-        normal: {
-          color: '#05325F',
-          //width:"100%",
-          fontSize: 10,
-          barBorderRadius: 30,
-        },
+        color: '#05325F',
+        //width:"100%",
+        fontSize: 10,
+        borderRadius: 30,
+        // barBorderRadius: 30,
       },
     },
   ],

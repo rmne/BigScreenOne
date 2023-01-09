@@ -39,3 +39,15 @@
 .read-the-docs {
   color: #888;
 } */
+
+.pulll_left:hover {
+  cursor: pointer;
+  background-color: #344dae;
+}
+
+.barbox2 li{
+	font-size: .19rem;
+	color:rgba(255,255,255,.7);
+	padding-top: .1rem;
+	padding-bottom: .1rem;
+}
