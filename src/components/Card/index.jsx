@@ -4,7 +4,9 @@ import Chart from '../Chart';
 
 import Context from '../../context';
 
-const Card = ({ title, option }) => {
+import { attackSourcesDataFmt } from '../bar';
+
+const Card = ({ title, option, height }) => {
   const { typeName } = useContext(Context);
   const tooltip = (name) => {
     return {
@@ -29,13 +31,21 @@ const Card = ({ title, option }) => {
       },
     };
   };
-
-  const [chartOption, setChartOption] = useState({
-    ...option,
-    tooltip: tooltip(typeName),
-  });
+  const [chartOption, setChartOption] = useState(null);
 
   useEffect(() => {
+    if (option.name === 'option_right2') {
+      setChartOption(option);
+    } else {
+      setChartOption({
+        ...option,
+        tooltip: tooltip(typeName),
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log(option);
     switch (option.name) {
       case 'option_left1':
         setChartOption({
@@ -94,12 +104,100 @@ const Card = ({ title, option }) => {
           },
           dataset: { source },
         });
+        break;
+      case 'option_right2':
+      // console.log('option_right2', option);
+      // const attaData = [];
+      // let data = [
+      //   {
+      //     code: '600519',
+      //     stock: '绿地控股',
+      //     fundPost: (150 + Math.random() * 10).toFixed(2),
+      //   },
+      //   {
+      //     code: '000858',
+      //     stock: '蒙牛',
+      //     fundPost: (130 + Math.random() * 10).toFixed(2),
+      //   },
+      //   {
+      //     code: '002475',
+      //     stock: '伊利',
+
+      //     fundPost: (110 + Math.random() * 10).toFixed(2),
+      //   },
+
+      //   {
+      //     code: '600276',
+
+      //     stock: '光明',
+
+      //     fundPost: (80 + Math.random() * 10).toFixed(2),
+      //   },
+
+      //   {
+      //     code: '601318',
+
+      //     stock: '味全',
+
+      //     fundPost: (70 + Math.random() * 10).toFixed(2),
+      //   },
+
+      //   {
+      //     code: '000661',
+
+      //     stock: '维森',
+
+      //     fundPost: (60 + Math.random() * 10).toFixed(2),
+      //   },
+
+      //   {
+      //     code: '000333',
+
+      //     stock: '客户G',
+
+      //     fundPost: (50 + Math.random() * 10).toFixed(2),
+      //   },
+
+      //   {
+      //     code: '300760',
+
+      //     stock: '客户H',
+
+      //     fundPost: (40 + Math.random() * 10).toFixed(2),
+      //   },
+
+      //   {
+      //     code: '300750',
+
+      //     stock: '客户T',
+
+      //     fundPost: (30 + Math.random() * 10).toFixed(2),
+      //   },
+
+      //   {
+      //     code: '601888',
+
+      //     stock: '客户F',
+
+      //     fundPost: (20 + Math.random() * 10).toFixed(2),
+      //   },
+      // ];
+      // data.forEach((it, index) => {
+      //   attaData[index] = parseFloat(it.fundPost).toFixed(2);
+      //   // topName[index] = `${it.code} ${it.stock}`;
+      // });
+      // console.log('attaData', attackSourcesDataFmt(attaData));
+      // let option1 = Object.assign({}, option);
+      // option1.series[0].data = attaData;
+      // console.log('比较', option1, chartOption);
+      // // setChartOption(option1);
+      // break;
     }
   }, [typeName, title]);
   // console.log(chartOption, typeName);
 
   return (
-    <div className="boxall" style={{ height: '3.1rem' }}>
+    <div className="boxall" style={{ height }}>
       <div className="alltitle">{title}</div>
       <Chart option={chartOption} />
       <div className="boxfoot"></div>

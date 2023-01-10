@@ -4,6 +4,7 @@ import Context from './context';
 
 import Card from './components/Card';
 import Map from './components/Map';
+import ChinaMap from './components/ChinaMap/ChinaMap.components';
 import Chart from './components/Chart';
 import barOption from './components/bar';
 import {
@@ -86,12 +87,18 @@ function App() {
               <Card
                 title={`近5年${typeName}合同金额合计`}
                 option={option_left1}
+                height="3.1rem"
               />
               <Card
                 title={`本年度${typeName}合同按组织分布`}
                 option={option_left2}
+                height="3.1rem"
               />
-              <Card title={`${typeName}情况分析`} option={option_left3} />
+              <Card
+                title={`${typeName}情况分析`}
+                option={option_left3}
+                height="3.1rem"
+              />
             </li>
             <li>
               <div className="bar">
@@ -126,30 +133,42 @@ function App() {
                 </div>
               </div>
               <div className="map">
-                <div className="map1">
+                {/* <div className="map1">
                   <img src="./picture/lbx.png"></img>
-                </div>
-                <div className="map2">
+                </div> */}
+                {/* <div className="map2">
                   <img src="./picture/jt.png"></img>
                 </div>
                 <div className="map3">
                   <img src="./picture/map.png"></img>
+                </div> */}
+                <div
+                  className="alltitle"
+                  style={{
+                    textAlign: 'left',
+                    marginLeft: '20px',
+                    marginTop: '20px',
+                    lineHeight: '.1rem',
+                  }}
+                >
+                  {typeName}合同金额按地域分布
                 </div>
-                <Map />
+                <ChinaMap />
               </div>
             </li>
             <li>
               <Card
                 title={`本年度${typeName}合同按类型占比`}
                 option={option_right1}
+                height="3.1rem"
               />
-              <div className="boxall" style={{ height: '6.43rem' }}>
-                <div className="alltitle">{`前十大${
+              <Card
+                title={`前十大${
                   typeName == '销售' ? '客户' : '供应商'
-                }交易金额`}</div>
-                <Chart option={barOption} id="echart5" />
-                <div className="boxfoot"></div>
-              </div>
+                }交易金额（万元）`}
+                option={barOption}
+                height="6.43rem"
+              />
             </li>
           </ul>
         </div>

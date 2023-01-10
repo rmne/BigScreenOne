@@ -1,55 +1,55 @@
 import * as echarts from 'echarts';
 
-var data = [
+export const data = [
   {
     code: '600519',
-    stock: '客户A',
-    fundPost: '21.987691',
+    stock: '绿地控股',
+    fundPost: (150 + Math.random() * 10).toFixed(2),
   },
   {
     code: '000858',
-    stock: '客户B',
-    fundPost: '20.377176',
+    stock: '蒙牛',
+    fundPost: (130 + Math.random() * 10).toFixed(2),
   },
   {
     code: '002475',
-    stock: '客户C',
-    fundPost: '19.127404',
+    stock: '伊利',
+    fundPost: (110 + Math.random() * 10).toFixed(2),
   },
   {
     code: '600276',
-    stock: '客户D',
-    fundPost: '18.40882',
+    stock: '光明',
+    fundPost: (80 + Math.random() * 10).toFixed(2),
   },
   {
     code: '601318',
-    stock: '客户E',
-    fundPost: '17.980597',
+    stock: '味全',
+    fundPost: (70 + Math.random() * 10).toFixed(2),
   },
   {
     code: '000661',
-    stock: '客户F',
-    fundPost: '16.957898',
+    stock: '维森',
+    fundPost: (60 + Math.random() * 10).toFixed(2),
   },
   {
     code: '000333',
     stock: '客户G',
-    fundPost: '15.099577',
+    fundPost: (50 + Math.random() * 10).toFixed(2),
   },
   {
     code: '300760',
     stock: '客户H',
-    fundPost: '14.76103',
+    fundPost: (40 + Math.random() * 10).toFixed(2),
   },
   {
     code: '300750',
     stock: '客户T',
-    fundPost: '13.002175',
+    fundPost: (30 + Math.random() * 10).toFixed(2),
   },
   {
     code: '601888',
     stock: '客户F',
-    fundPost: '12.133536',
+    fundPost: (20 + Math.random() * 10).toFixed(2),
   },
 ];
 
@@ -132,7 +132,7 @@ for (let i = 0; i < attaData.length; i++) {
   salvProMax.push(attaData[0]);
 }
 
-export function attackSourcesDataFmt(sData) {
+export const attackSourcesDataFmt = (sData) => {
   var sss = [];
   sData.forEach(function (item, i) {
     let itemStyle = {
@@ -144,7 +144,7 @@ export function attackSourcesDataFmt(sData) {
     });
   });
   return sss;
-}
+};
 
 let barOption = {
   name: 'option_right2',
@@ -156,7 +156,7 @@ let barOption = {
       fontSize: 16,
     },
   },
-  color: ['#F7B731'],
+  color: ['#e43b5c', '#fc8434'],
   legend: {
     pageIconSize: [12, 12],
     itemWidth: 20,
@@ -342,7 +342,8 @@ let barOption = {
       barWidth: 15,
       barGap: '-100%',
       margin: '20',
-      data: salvProMax,
+      // data: salvProMax,
+      data: [160, 160, 160, 160, 160, 160, 160, 160, 160, 160],
       textStyle: {
         //图例文字的样式
         fontSize: 10,
@@ -359,6 +360,6 @@ let barOption = {
   ],
 };
 
-// console.log(barOption);
+console.log('barOption', barOption);
 
 export default barOption;

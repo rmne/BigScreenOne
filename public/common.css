@@ -52,8 +52,8 @@ a:hover{ color:#06c; text-decoration: none!important}
 .mainbox>ul{}
 .mainbox>ul>li{ float: left; padding: 0 .1rem}
 
-.mainbox>ul>li{ width: 30%}
-.mainbox>ul>li:nth-child(2){ width: 40%;padding: 0}
+.mainbox>ul>li{ width: 25%}
+.mainbox>ul>li:nth-child(2){ width: 50%;padding: 0}
 
 .boxall{ border: 1px solid rgba(25,186,139,.17); padding:0 .2rem .4rem .15rem;  background: rgba(255,255,255,.04) url(./line.png); background-size: 100% auto; position: relative; margin-bottom: .15rem; z-index: 10;}
 .boxall:before,
